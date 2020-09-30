@@ -68,12 +68,45 @@ def loadData(analyzer, accidentsfile):
 #  Funciones para consultas
 # ___________________________________________________
 
-def getAccidentsByRange(analyzer, initialDate):
+def accidentsSize(analyzer):
+    """
+    Numero de crimenes leidos
+    """
+    return model.accidentsSize(analyzer)
+
+def indexHeight(analyzer):
+    """
+    Altura del indice (arbol)
+    """
+    return model.indexHeight(analyzer)
+
+
+def indexSize(analyzer):
+    """
+    Numero de nodos en el arbol
+    """
+    return model.indexSize(analyzer)
+
+
+def minKey(analyzer):
+    """
+    La menor llave del arbol
+    """
+    return model.minKey(analyzer)
+
+
+def maxKey(analyzer):
+    """
+    La mayor llave del arbol
+    """
+    return model.maxKey(analyzer)
+
+def getAccidentsByRange(analyzer, initialDate,finalDate):
     """
     Retorna el total de crimenes en un rango de fechas
     """
     initialDate = datetime.datetime.strptime(initialDate, '%Y-%m-%d')
-    return model.getAccidentsByRange(analyzer, initialDate.date())
+    return model.getAccidentsByRange(analyzer, initialDate.date(),finalDate.date())
 
 def getAccidentsByRangeSeverity(analyzer, initialDate, severity):
     """
