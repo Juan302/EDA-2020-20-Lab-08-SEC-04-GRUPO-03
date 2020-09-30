@@ -38,8 +38,25 @@ es decir contiene los modelos con los datos en memoria
 # API del TAD Catalogo de accidentes
 # -----------------------------------------------------
 
+def newAnalyzer():
+    """ Inicializa el analizador
 
-#333
+    Crea una lista vacia para guardar todos los crimenes
+    Se crean indices (Maps) por los siguientes criterios:
+    -Fechas
+
+    Retorna el analizador inicializado.
+    """
+    analyzer = {'crimes': None,
+                'dateIndex': None
+                }
+
+    analyzer['crimes'] = lt.newList('SINGLE_LINKED', compareIds)
+    analyzer['dateIndex'] = om.newMap(omaptype='BST',
+                                      comparefunction=compareDates)
+    return analyzer
+
+
 # Funciones para agregar informacion al catalogo
 
 
