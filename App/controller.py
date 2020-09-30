@@ -42,8 +42,8 @@ def init():
     """
     Llama la funcion de inicializacion del modelo.
     """
-
-    return None
+    analyzer = model.newAnalyzer()
+    return analyzer
 
 
 # ___________________________________________________
