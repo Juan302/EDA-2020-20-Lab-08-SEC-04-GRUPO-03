@@ -114,4 +114,4 @@ def getAccidentsByRangeSeverity(analyzer, initialDate, severity):
     fecha determinada
     """
     initialDate = datetime.datetime.strptime(initialDate, '%Y-%m-%d')
-    return model.getCrimesByRangeCode(analyzer, initialDate.date(),severity)
+    return model.getAccidentsByRangeSeverity(analyzer, initialDate.date(),severity)

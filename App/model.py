@@ -52,7 +52,7 @@ def newAnalyzer():
                 }
 
     analyzer['accidents'] = lt.newList('SINGLE_LINKED', compareIds)
-    analyzer['dateIndex'] = om.newMap(omaptype='BST',
+    analyzer['dateIndex'] = om.newMap(omaptype='RBT',
                                       comparefunction=compareDates)
     return analyzer
 
@@ -76,7 +76,7 @@ def updateDateIndex(map, accident):
     Si no se encuentra creado un nodo para esa fecha en el arbol
     se crea y se actualiza el indice de tipos de crimenes
     """
-    occurreddate = crime['Start_Time']
+    occurreddate = accident['Start_Time']
     accidentdata = datetime.datetime.strptime(occurreddate, '%Y-%m-%d %H:%M:%S')
     entry = om.get(map, accidentdata.date())
     if entry is None:
@@ -115,7 +115,7 @@ def newDataEntry(accident):
     binario.
     """
     entry = {'SeverityIndex': None, 'lstaccidents': None}
-    entry['SeverityIndex'] = m.newMap(numelements=30,
+    entry['SeverityIndex'] = m.newMap(numelements=61,
                                      maptype='PROBING',
                                      comparefunction=compareSeverity)
     entry['lstaccidents'] = lt.newList('SINGLE_LINKED', compareDates)
@@ -130,7 +130,7 @@ def newSeverityEntry(entrada1, accident):
     sepentry = {'severity': None, 'lstSeverities': None}
     sepentry['severity'] = entrada1
     sepentry['lstSeverities'] = lt.newList('SINGLELINKED', compareSeverity)
-    return ofentry
+    return sepentry
 
 
 # ==============================

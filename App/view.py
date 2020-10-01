@@ -92,7 +92,7 @@ while True:
         severity = input("Severidad del accidente: ")
         total_accidentes = controller.getAccidentsByRangeSeverity(cont, initialDate,
                                                       severity)
-        print("\nTotal de accidentes tipo: " + severity + " en esa fecha:  " +
+        print("\nTotal de accidentes con severidad: " + severity + " en esa fecha:  " +
               str(total_accidentes))
     else:
         sys.exit(0)
